@@ -23,11 +23,14 @@ getDoc(doc(db, "blog", postID)).then((docSnap) => {
     if (docSnap.exists()) {
         const postData = docSnap.data();
         postContentElement.innerHTML = `
-            <h3>${postData.title}</h3>
-            <p>${postData.content}</p>
-            <span>Yazar: ${postData.author}</span>
-            <br>
-            <img src="${postData.imageUrl}" alt="${postData.title}" style="max-width: 100%;"> <!-- Resmi burada göster -->
+            <div id="post-content">
+                <h3>${postData.title}</h3>
+                <div class="post-image">
+                    <img src="${postData.imageUrl}" alt="${postData.title}">
+                </div>
+                <p>${postData.content}</p>
+                <span class="author">Author: ${postData.author}</span>
+            </div>
         `;
     } else {
         postContentElement.innerHTML = "<p>Blog yazısı bulunamadı.</p>";

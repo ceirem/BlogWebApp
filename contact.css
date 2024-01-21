@@ -2,7 +2,6 @@
 
 .blog-post {
     padding: 20px;
-
     margin-top: 70px;
     /* Adjust based on the height of your navbar */
     max-width: 100%;
@@ -61,6 +60,7 @@
         font-size: 2rem;
     }
 }
+
 .container {
     padding: 20px;
     border-radius: 8px;
@@ -68,10 +68,10 @@
     max-width: 600px;
     margin: 30px auto;
 }
+
 .form-group {
     margin-bottom: 15px;
     padding: 20px;
-
 }
 
 label {
@@ -80,7 +80,6 @@ label {
     color: #333;
     font-weight: bold;
     padding: 20px;
-
 }
 
 input[type="text"],
@@ -125,10 +124,10 @@ button:active {
     background-color: #003d82;
 }
 
-
 .navbar a:hover {
     color: var(--second-color);
 }
+
 .popup-container {
     position: fixed;
     top: 0;
