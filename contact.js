@@ -43,3 +43,12 @@ function closePopup() {
     document.getElementById('successPopup').style.display = 'none';
 }
 window.closePopup = closePopup;
+
+const logoutButton = document.getElementById('logoutButton');
+logoutButton.addEventListener('click', function () {
+    signOut(auth).then(() => {
+        window.location.href = 'login.html';
+    }).catch((error) => {
+        console.error('Çıkış Yaparken Hata Oluştu', error);
+    });
+});
