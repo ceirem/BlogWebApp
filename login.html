@@ -2,13 +2,14 @@
 <html lang="tr">
 <head>
     <meta charset="UTF-8">
-    <title>Giriş Yap - Apollo Coffee</title>
+    <title>Log in - Apollo Coffee</title>
     <link rel="stylesheet" href="style.css">
     <!-- Stil dosyalarınız burada yer alabilir -->
 </head>
 <body>
 
     <div class="form-container">
+        <div id="loginErrorMessage" style="color: red; display: none;"></div>
         <form id="loginForm" class="form">
             <h2>Login</h2>
             <input type="text" id="email" placeholder="Email" required>
@@ -54,7 +55,11 @@
                         window.location.href = 'blogShow.html';
                 })
                 .catch((error) => {
-                    errorText.textContent = error.message;
+                    console.error("Login error:", error);
+                    // Kullanıcıya hata mesajını göster
+                    const errorMessageDiv = document.getElementById('loginErrorMessage');
+                    errorMessageDiv.innerText = "Login failed: \n" + error.message;
+                    errorMessageDiv.style.display = 'block'; // Hata mesajını görünür yap
                 });
         });
     </script>

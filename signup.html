@@ -11,8 +11,10 @@
     </header>
     
     <div class="form-container">
+        <div id="error-message" style="display: none; color: red;"></div>
+
         <form id="signupForm" class="form">
-            <h2>Kayıt Ol</h2>
+            <h2>Register</h2>
             <input type="email" id="email" placeholder="Email" required>
             <input type="password" id="password" placeholder="Password" required>
             <select id="role" required>
@@ -64,9 +66,15 @@
                     // Kullanıcıyı giriş sayfasına yönlendirin
                     window.location.href = 'login.html';
                 })
-                .catch((error) => {
-                    console.error('Kayıt Hatası:', error.code, error.message);
-                    // Kullanıcıya hata mesajını gösterebilirsiniz
+                .catch(error => {
+                    console.error("Signup error:", error);
+                    
+                    const errorMessageElement = document.getElementById('error-message');
+                    if (errorMessageElement) {
+                        errorMessageElement.innerText = "Signup failed: \n" + error.message;
+                        errorMessageElement.style.display = 'block';
+                    }
+
                 });
         });
     </script>

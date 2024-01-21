@@ -11,7 +11,7 @@
 <body>
     <header>
         <div class="nav container">
-            <a href="/blogShow.html" class="logo">B<span>log</span></a>
+            <a href="/blogShow.html" class="logo">Apollo B<span>log</span></a>
             <li class="navbar">
                 <a href="/blogShow.html">Home</a>
                 <a href="/map.html">Map</a>
@@ -26,7 +26,7 @@
 
     <section class="home" id="home">
         <div class="home-text container">
-            <div class="home-title">Blog</div>
+            <div class="home-title">Apollo Blog</div>
             <span class="home-subtitle">Your source of great content</span>
         </div>
     </section>
@@ -72,6 +72,7 @@
             }
         });
 
+
         async function updateBlogList() {
             const blogListElement = document.getElementById("blog-list");
             const querySnapshot = await getDocs(collection(db, "blog"));
@@ -81,11 +82,14 @@
                 const blogPostElement = document.createElement('div');
                 blogPostElement.classList.add("post-box");
                 blogPostElement.innerHTML = `
-                    <h2 class="category">${blog.title}</h2>
-                    <p class="post-description">${blog.content}</p>
-                    <div class="profile">
-                        <span class="profile-name">${blog.author}</span>
-                    </div>
+                    <a href="post-detail.html?postID=${doc.id}">
+                        <img src="${blog.imageUrl}" alt="${blog.title}" class="blog-image"> <!-- Resim ekleniyor -->
+                        <h4 class="category">${blog.title}</h4>
+                        <p class="post-description">${blog.content}</p>
+                        <div class="profile">
+                            <span class="profile-name">${blog.author}</span>
+                        </div>
+                    </a>
                 `;
                 blogListElement.appendChild(blogPostElement);
             });
