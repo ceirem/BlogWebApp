@@ -179,6 +179,9 @@
      box-shadow: 0 4px 14px hsl(355deg 25% 15%/ 10%);
      padding: 15px;
      border-radius: 0.5rem;
+     overflow: hidden;
+     text-overflow: ellipsis;
+     /* Taşan metni üç nokta ile kırp */
  }
  
  .post-img {
@@ -190,7 +193,7 @@
  }
  
  .category {
-     font-size: 0.9rem;
+     font-size: 1rem;
      font-weight: 500;
      text-transform: uppercase;
      color: var(--second-color);
@@ -215,14 +218,15 @@
      margin-top: 4px;
  }
  
- .post-desccription {
-     font-size: 0.9rem;
+ .post-description {
+     font-size: 1rem;
      line-height: 1.5rem;
      margin: 5px 0 10px;
      /* Keep title in 2 lines*/
      -webkit-line-clamp: 3;
      -webkit-box-orient: vertical;
      overflow: hidden;
+     color: var(--text-color);
  }
  
  .profile {
@@ -230,15 +234,8 @@
      align-items: center;
      gap: 5px;
      font-size: 0.875rem;
- }
- 
- .profile-img {
-     width: 35px;
-     height: 35px;
-     border-radius: 50%;
-     object-fit: cover;
-     object-position: center;
-     border: 2px solid var(--second-color);
+     color: #3f3f3f;
+     text-decoration: solid;
  }
  
  .footer {
@@ -277,65 +274,145 @@
      background: var(--second-color);
      color: #fff;
  }
-
+ 
  .form-container {
-    max-width: 400px;
-    margin: 50px auto;
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    text-align: center;
-}
-
-.form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.form h2 {
-    font-size: 24px;
-    margin-bottom: 20px;
-}
-
-.form input, .form select {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 15px;
-    border-radius: 4px;
-    border: 1px solid #ddd;
-}
-
-.form button {
-    width: 100%;
-    padding: 10px;
-    border: none;
-    border-radius: 4px;
-    background-color: #007bff;
-    color: white;
-    cursor: pointer;
-}
-
-.form button:hover {
-    background-color: #0056b3;
-}
-
-.secondary-button {
-    margin-top: 15px;
-    background-color: transparent;
-    border: 1px solid #007bff;
-    color: #007bff;
-    padding: 10px;
-    border-radius: 4px;
-    cursor: pointer;
-}
-
-.secondary-button:hover {
-    background-color: #007bff;
-    color: white;
-}
-
-.error-text {
-    color: red;
-}
+     max-width: 400px;
+     margin: 50px auto;
+     background-color: #fff;
+     padding: 20px;
+     border-radius: 8px;
+     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+     text-align: center;
+ }
+ 
+ .form {
+     display: flex;
+     flex-direction: column;
+     align-items: center;
+ }
+ 
+ .form h2 {
+     font-size: 24px;
+     margin-bottom: 20px;
+ }
+ 
+ .form input,
+ .form select {
+     width: 100%;
+     padding: 10px;
+     margin-bottom: 15px;
+     border-radius: 4px;
+     border: 1px solid #ddd;
+ }
+ 
+ .form button {
+     width: 100%;
+     padding: 10px;
+     border: none;
+     border-radius: 4px;
+     background-color: #007bff;
+     color: white;
+     cursor: pointer;
+ }
+ 
+ .form button:hover {
+     background-color: #0056b3;
+ }
+ 
+ .secondary-button {
+     margin-top: 15px;
+     background-color: transparent;
+     border: 1px solid #007bff;
+     color: #007bff;
+     padding: 10px;
+     border-radius: 4px;
+     cursor: pointer;
+ }
+ 
+ .secondary-button:hover {
+     background-color: #007bff;
+     color: white;
+ }
+ 
+ .error-text {
+     color: red;
+ }
+ /* Style the Contact Us form */
+ 
+ #addCoffeeForm {
+     margin-top: 60px;
+     background-color: #fff;
+     padding: 30px;
+     border-radius: 5px;
+ }
+ 
+ .form-group {
+     margin-bottom: 30px;
+ }
+ 
+ input[type="text"],
+ input[type="email"] {
+     width: 100%;
+     padding: 10px;
+     border: 1px solid #ccc;
+     border-radius: 5px;
+ }
+ 
+ #sendMessage {
+     background-color: var(--second-color);
+     /* Button background color */
+     color: #fff;
+     border: none;
+     border-radius: 5px;
+     padding: 10px 20px;
+     cursor: pointer;
+ }
+ /* Style the success popup */
+ 
+ .popup-container {
+     position: fixed;
+     top: 0;
+     left: 0;
+     width: 100%;
+     height: 100%;
+     background-color: rgba(0, 0, 0, 0.5);
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     z-index: 999;
+     display: none;
+ }
+ 
+ .popup {
+     background-color: #fff;
+     padding: 20px;
+     border-radius: 5px;
+     text-align: center;
+ }
+ 
+ .popup h2 {
+     font-size: 24px;
+     margin-bottom: 10px;
+ }
+ 
+ .popup p {
+     font-size: 16px;
+     margin-bottom: 20px;
+ }
+ 
+ .popup button {
+     background-color: var(--container-color);
+     /* Button background color */
+     color: #fff;
+     border: none;
+     border-radius: 5px;
+     padding: 10px 20px;
+     cursor: pointer;
+ }
+ /* Add responsive styles here if needed */
+ 
+ @media (max-width: 768px) {
+     .container {
+         padding: 10px;
+     }
+ }
