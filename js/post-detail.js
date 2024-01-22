@@ -1,5 +1,6 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
 import { getFirestore, doc, getDoc } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
+import { getAuth, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
 
 const firebaseConfig = {
     apiKey: "AIzaSyDfUfWDEkeVLGyMiRUxlPeiLUT1b-EwOBI",
@@ -13,6 +14,7 @@ const firebaseConfig = {
 
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
+const auth = getAuth(app);
 
 const urlParams = new URLSearchParams(window.location.search);
 const postID = urlParams.get('postID');
@@ -37,4 +39,20 @@ getDoc(doc(db, "blog", postID)).then((docSnap) => {
     }
 }).catch((error) => {
     console.error("Blog yazısı yüklenirken hata oluştu:", error);
+});
+
+onAuthStateChanged(auth, (user) => {
+    if (!user) {
+        document.getElementById('logoutButton').style.display = 'none';
+    } else {
+        document.getElementById('logoutButton').style.display = 'block';
+    }
+});
+
+document.getElementById('logoutButton').addEventListener('click', () => {
+    signOut(auth).then(() => {
+        window.location.href = 'login.html';
+    }).catch((error) => {
+        console.error('Çıkış Yaparken Hata Oluştu', error);
+    });
 });
