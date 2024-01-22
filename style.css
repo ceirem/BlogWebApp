@@ -179,9 +179,6 @@
      box-shadow: 0 4px 14px hsl(355deg 25% 15%/ 10%);
      padding: 15px;
      border-radius: 0.5rem;
-     overflow: hidden;
-     text-overflow: ellipsis;
-     /* Taşan metni üç nokta ile kırp */
  }
  
  .post-img {
@@ -222,10 +219,11 @@
      font-size: 1rem;
      line-height: 1.5rem;
      margin: 5px 0 10px;
-     /* Keep title in 2 lines*/
-     -webkit-line-clamp: 3;
+     display: -webkit-box;
+     -webkit-line-clamp: 6;
      -webkit-box-orient: vertical;
      overflow: hidden;
+     text-overflow: ellipsis;
      color: var(--text-color);
  }
  
@@ -283,6 +281,7 @@
      border-radius: 8px;
      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
      text-align: center;
+     justify-content: center;
  }
  
  .form {
@@ -310,32 +309,36 @@
      padding: 10px;
      border: none;
      border-radius: 4px;
-     background-color: #007bff;
+     background-color: var(--text-color);
      color: white;
      cursor: pointer;
  }
  
  .form button:hover {
-     background-color: #0056b3;
+     background-color: #3f3f3f;
  }
  
  .secondary-button {
      margin-top: 15px;
      background-color: transparent;
-     border: 1px solid #007bff;
-     color: #007bff;
+     border: 1px solid var(--text-color);
+     color: var(--text-color);
      padding: 10px;
      border-radius: 4px;
      cursor: pointer;
  }
  
  .secondary-button:hover {
-     background-color: #007bff;
+     background-color: var(--second-color);
      color: white;
  }
  
  .error-text {
      color: red;
+ }
+ 
+ .blog {
+     margin-top: 10px;
  }
  /* Style the Contact Us form */
  
